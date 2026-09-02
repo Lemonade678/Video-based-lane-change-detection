@@ -216,3 +216,38 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ─────────────────────────────────────────────────────────────
+# กฎเฉพาะของโปรเจกต์นี้
+# ─────────────────────────────────────────────────────────────
+
+# น้ำหนักโมเดล — 0601.pth / 0701.pth / clrernet_culane_dla34_ema.pth
+# หนักไฟล์ละ ~140 MB เกินลิมิต 100 MB ของ GitHub โหลดจาก upstream CLRerNet แทน
+*.pth
+*.pt
+*.onnx
+*.weights
+
+# วิดีโอ — เก็บเฉพาะ results/lane_change_demo.mp4 ที่ใส่ไว้เป็นตัวอย่าง
+# ที่เหลือ (demo_1.mp4 131 MB ฯลฯ) เกินลิมิต
+*.mp4
+*.avi
+*.mov
+!results/lane_change_demo.mp4
+
+# สไลด์ต้นฉบับหนัก 240–650 MB ต่อไฟล์ (ฝังวิดีโอไว้) เก็บเฉพาะ PDF ใน docs/
+*.pptx
+*.ppt
+~$*
+*.tmp
+
+# ชุดข้อมูล / ผลรัน
+data/
+datasets/
+work_dirs/
+outputvideos/
+inputvideos/
+
+# ระบบ
+.DS_Store
+Thumbs.db
