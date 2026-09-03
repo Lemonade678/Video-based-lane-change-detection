@@ -1,8 +1,8 @@
-# Image-Based Vehicle Lane-Change Detection
+# Image-Based Vehicle Lane-Change Detection by The Most Handsome CV Engineer APAC
 
-Research internship project — **Multimedia Lab, Yuan Ze University, Taiwan**
+KMUTT X TEEP Taiwan Research internship project — **Multimedia Lab, Yuan Ze University, Taiwan**
 Supervisor: Prof. Duan-Yu Chen · Jun – Aug 2025
-Author: Nutt Bhanidch (KMUTT, Electronics & Infocommunication Engineering)
+Author: Nutt Bhanidch (KMUTT, Bachelor of Engineering;Electronic and Infocommunication(International))
 
 Detecting *"that car just changed lanes"* from ordinary road video needs two facts at the
 same time — **where the lanes are** and **where the cars are** — and they come from two
@@ -67,7 +67,7 @@ vehicles — which turned out to be the root cause of most early false lane-chan
 
 ---
 
-## Installation
+## Installation (GPU Usage: NVIDIA RTX 4050)
 
 There are **two separate environments** here. They cannot share one, and trying to make
 them share one is how a week disappears.
@@ -210,7 +210,7 @@ python demo/image_demo.py demo/demo.jpg \
 
 More in [`results/`](results/).
 
----
+--- 
 
 ## Honest limitations
 
@@ -228,6 +228,8 @@ More in [`results/`](results/).
    main reason it is slow. Passing the array straight through would be the obvious fix.
 
 ---
+##Future work
+1. **Dlnet Application
 
 ## References
 
