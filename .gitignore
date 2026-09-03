@@ -242,11 +242,13 @@ __marimo__/
 *.tmp
 
 # ชุดข้อมูล / ผลรัน
-data/
-datasets/
-work_dirs/
-outputvideos/
-inputvideos/
+# ขึ้นต้นด้วย / เพื่อให้มีผลเฉพาะรากของ repo — ถ้าไม่ใส่ กฎพวกนี้จะไปกิน
+# third_party/CLRerNet/libs/datasets/ และ tests/data/ ซึ่งเป็นซอร์สโค้ดจริง
+/data/
+/datasets/
+/work_dirs/
+/outputvideos/
+/inputvideos/
 
 # ระบบ
 .DS_Store

@@ -11,39 +11,68 @@ of the License at
     http://www.apache.org/licenses/LICENSE-2.0
 
 --------------------------------------------------------------------------
-THIRD-PARTY COMPONENTS
+VENDORED THIRD-PARTY SOURCE
 --------------------------------------------------------------------------
 
-The pipeline in this repository depends on the following third-party work.
-None of it is vendored here — clone or install each separately. Each remains
-under its own license and is the work of its own authors.
+third_party/CLRerNet/
 
-1. CLRerNet
-   "CLRerNet: Improving Confidence of Lane Detection with LaneIoU"
-   Hiroto Honda and Yusuke Uchida, WACV 2024
-   https://github.com/hirotomusiker/CLRerNet
-   Apache License 2.0
+    CLRerNet
+    "CLRerNet: Improving Confidence of Lane Detection with LaneIoU"
+    Hiroto Honda and Yusuke Uchida, WACV 2024
+    https://github.com/hirotomusiker/CLRerNet
+    Copyright and license: Apache License 2.0, see
+    third_party/CLRerNet/LICENSE
 
-   Used for lane boundary detection. `clrernet/detect_video.py` in this
-   repository is my own code written against their model and config; the
-   model, training code and weights are theirs.
+    A full copy of that repository is included in this one. It is included
+    unmodified except for a single ADDED file:
 
-2. YOLOv11 / Ultralytics
+        third_party/CLRerNet/demo/video_demo.py   (added, 186 lines)
+
+    That file was written by Nutt Bhanidch. It is adapted from mmdetection's
+    demo/image_demo.py (Apache 2.0, Copyright (c) OpenMMLab) and its header
+    records that. It adds per-frame video processing and CLAHE contrast
+    enhancement.
+
+    No file authored by the CLRerNet team has been altered. Verify it
+    yourself — this should report only video_demo.py as extra:
+
+        git clone --depth 1 https://github.com/hirotomusiker/CLRerNet.git /tmp/up
+        diff -r --brief /tmp/up third_party/CLRerNet -x .git -x '*.egg-info'
+
+--------------------------------------------------------------------------
+THIRD-PARTY COMPONENTS NOT VENDORED HERE
+--------------------------------------------------------------------------
+
+Install these separately. Each remains under its own license and is the work
+of its own authors.
+
+1. YOLOv11 / Ultralytics
    https://github.com/ultralytics/ultralytics
    AGPL-3.0
 
-   Used for vehicle detection. Note that AGPL-3.0 is a strong copyleft
-   licence — if you deploy a network service built on it, that obligation
-   reaches your own source. It is listed here so nobody is surprised by it.
+   Used for vehicle detection. AGPL-3.0 is a strong copyleft licence — if you
+   deploy a network service built on it, that obligation reaches your own
+   source. Listed here so nobody is surprised by it later.
+
+2. mmdetection / mmcv / mmengine — OpenMMLab
+   https://github.com/open-mmlab/mmdetection
+   Apache License 2.0
+   Required to run CLRerNet.
 
 3. CULane dataset
    https://xingangpan.github.io/projects/CULane.html
-   Used for the pre-trained lane detection weights. Research use terms apply.
+   Source of the pre-trained lane detection weights. Research use terms apply.
+   Weight files are not distributed in this repository.
 
 --------------------------------------------------------------------------
 WHAT IS MINE
 --------------------------------------------------------------------------
 
-Everything under `notebooks/`, `clrernet/detect_video.py`, the lane-change
-decision rule, the `HomemadeStrongSORT` tracker, and the integration between
-the three models.
+  notebooks/                              the integrated pipeline, the
+                                          lane-change decision rule, and the
+                                          HomemadeStrongSORT tracker
+  third_party/CLRerNet/demo/video_demo.py the CLRerNet video runner
+  clrnet_legacy/                          earlier runner for the older CLRNet
+  results/, docs/                         output frames, demo clip, slides
+
+Everything else under third_party/ belongs to its original authors.

@@ -1,0 +1,20 @@
+services:
+  dev:
+    runtime: nvidia
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        PYTHON_VERSION: 3.11.9
+        TORCH_VERSION: 2.1.0
+        TORCHVISION_VERSION: 0.16.0
+        TORCH_CUDA_ARCH_LIST: 7.5;8.0;8.6;9.0
+        MIM_VERSION: 0.3.9
+        MMCV_VERSION: 2.1.0
+        MMDET_VERSION: 3.3.0
+        MMENGINE_VERSION: 0.10.5
+    shm_size: "16gb"
+    tty: true
+    volumes:
+      - .:/work
+      - $HOME/dataset:/work/dataset
